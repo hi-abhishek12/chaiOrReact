@@ -26,7 +26,7 @@ class Service{
                     userId
             })
         } catch (error) {
-            console.log('error',error)
+            console.log('appwrite service :: createPost :: error',error)
         }
    } 
 
@@ -41,7 +41,7 @@ class Service{
             }
         )
     } catch (error) {
-        throw error;
+        console.log('appwrite service :: updatepost :: error',error)
     }
    }
    
@@ -52,7 +52,7 @@ class Service{
         )
         return true;
     } catch (error) {
-        console.log('error',error)
+        console.log('Appwrite :: deletePost ::verror',error)
         return false;
     }
    }
@@ -65,7 +65,7 @@ class Service{
             slug 
         )
     } catch (error) {
-        console.log('error',error);
+        console.log('Appwrite :: getPost ::verror',error);
         return false;
     }
    }
@@ -80,9 +80,46 @@ class Service{
                 ]
             )
         } catch (error) {
-            console.log('error',error);
+            console.log('Appwrite :: getAllPosts :: error',error);
         }
    }
+
+   // file upload service
+
+   async uploadFile(file){
+    try {
+        return await this.bucket.createFile(
+            conf.appwriteBucketId , ID.unique(),
+            file
+        )
+    } catch (error) {
+        console.log('appwrite service :: upload file error :: ',error);
+        return false;
+    }
+   }
+
+   async deleteFile(fileId){
+    try {
+        await this.bucket.deleteFile(
+            conf.appwriteBucketId , fileId
+        )
+        return true
+    } catch (error) {
+        console.log('appwrite service :: deleteFile :: error',error);
+        return false;
+    }
+   }
+   
+   getFilePreview = (fileId) =>{
+        try {
+            return this.bucket.getFilePreview(
+                conf.appwriteBucketId , fileId
+            )
+        } catch (error) {
+            console.log('appwrite service :: getFilePreview :: error',error);
+        }
+   }
+ 
 }
 
 const service = new Service();
