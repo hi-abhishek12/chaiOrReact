@@ -59,14 +59,29 @@ class Service{
 
    async getPost(slug){
     try {
-         await this.databases.getDocument(
+        return await this.databases.getDocument(
             conf.appwriteDatabaseId , 
             conf.appwriteCollectionId , 
             slug 
         )
     } catch (error) {
         console.log('error',error);
+        return false;
     }
+   }
+
+   async getAllPosts(){
+        try {
+            return await this.databases.listDocuments(
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                [
+                    Query.equal("status" , "active")
+                ]
+            )
+        } catch (error) {
+            console.log('error',error);
+        }
    }
 }
 
