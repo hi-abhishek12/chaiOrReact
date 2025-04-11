@@ -50,7 +50,12 @@ function Header() {
             </Link>
           </div>
             <ul>
-              
+              {navItems.map((item) => (
+                item.active ? (
+                  <li key={item.name}></li>
+                ) 
+                : null
+              ))}
             </ul>
 
         </nav>
