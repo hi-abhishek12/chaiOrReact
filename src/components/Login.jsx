@@ -10,7 +10,7 @@ function Login() {
 
 const dispatch = useDispatch();
 const navigate = useNavigate();
-const {registor , handleSubmit} = useForm
+const {register , handleSubmit} = useForm()
 const [error , setError] = useState('');
 
 const login = async(data) =>{
@@ -47,7 +47,9 @@ const login = async(data) =>{
                         Sign Up
                     </Link>
         </p>
-        {error && <p className="text-red-600 mt-8 text-center"> </p>}
+        
+        {error && <p className =
+        "text-red-600 mt-8 text-center">{error}</p>}
 
         <form onSubmit={handleSubmit(login)} 
         className='mt-8'>
@@ -57,7 +59,7 @@ const login = async(data) =>{
           label = "Email:"
           placeholder = "Enter Email"
           type = "email"
-          {...registor("email",{
+          {...register("email",{
             required : true,
             validate : {
               matchPattern:(value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.
@@ -70,13 +72,13 @@ const login = async(data) =>{
            label = "Password:"
            placeholder = "Enter Password"
            type = "password"
-           {...registor("password"),{
+           {...register("password"),{
             required : true
            }}
            />
 
-           <button type='submit' 
-           className='w-full'>Sign in</button>
+           <Button type='submit' 
+           className='w-full'>Sign in</Button>
            </div>
         </form>
       </div>
