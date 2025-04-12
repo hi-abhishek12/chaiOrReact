@@ -50,7 +50,47 @@ function SignUp() {
 
         {error && <p className =
         "text-red-600 mt-8 text-center">{error}</p>}
+        
+        <form onSubmit={handleSubmit(signUp)}>
+          <div className='space-y-5'>
+          <Input
+            label = "Full Name:"
+            placeholder = "Enter Full Name"
+            {...registor("name",{
+              required : true
+            })}
+          />
 
+           <Input 
+              label = "Email:"
+              placeholder = "Enter Email"
+                    type = "email"
+              {...register("email",{
+                required : true,
+                validate : {
+                  matchPattern:(value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.
+                    test(value) || 'Email address must be valid address'
+                }
+              })}
+                />
+
+            <Input
+              label = "Password:"
+              placeholder = "Enter Password"
+              type = "password"
+              {...required("password",{
+                required : true
+              })}
+          />
+
+          <Button type='submit'
+          className='w-full'>
+            Sign Up
+          </Button>
+          </div>
+         
+        </form>
+        
         </div>
     </div>
     
