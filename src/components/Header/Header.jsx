@@ -6,10 +6,11 @@ import {Container , LogoutBtn , Logo} from '../index'
 
 
 function Header() {
+const navigate = useNavigate()
+
     const authStatus = useSelector((state) => 
       state.auth.status
     )
-    const navigate = useNavigate()
 
     const navItems = [
       {
