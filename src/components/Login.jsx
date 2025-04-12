@@ -4,14 +4,13 @@ import { useDispatch } from 'react-redux'
 import {Logo , Input , Button} from './index'
 import { login as authLogin} from '../store/authSlice'
 import {Link , useNavigate} from 'react-router-dom'
-import {useForm , submitHandler} from 'react-hook-form'
-
+import {useForm} from 'react-hook-form'
 
 function Login() {
 
 const dispatch = useDispatch();
 const navigate = useNavigate();
-const {registor , submitHandler} = useForm
+const {registor , handleSubmit} = useForm
 const [error , setError] = useState('');
 
 const login = async(data) =>{
@@ -48,6 +47,38 @@ const login = async(data) =>{
                         Sign Up
                     </Link>
         </p>
+        {error && <p className="text-red-600 mt-8 text-center"> </p>}
+
+        <form onSubmit={handleSubmit(login)} 
+        className='mt-8'>
+
+          <div className='space-y-5'>
+          <Input 
+          label = "Email:"
+          placeholder = "Enter Email"
+          type = "email"
+          {...registor("email",{
+            required : true,
+            validate : {
+              matchPattern:(value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.
+                test(value) || 'Email address must be valid address'
+            }
+          })}
+           />
+
+           <Input
+           label = "Password:"
+           placeholder = "Enter Password"
+           type = "password"
+           {...registor("password"),{
+            required : true
+           }}
+           />
+
+           <button type='submit' 
+           className='w-full'>Sign in</button>
+           </div>
+        </form>
       </div>
 
     </div>
