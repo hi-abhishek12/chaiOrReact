@@ -4,6 +4,17 @@ import Footer from "./Footer/Footer";
 import Button from './Button';
 import Input from './Input';
 import RTE from './RTE'
+import SignUp from './SignUp';
 import LogoutBtn from './Header/LogoutBtn';   
 import Container from "./container/container";
-export {Header , Footer , Container , Logo , LogoutBtn , Button , Input , RTE}
+export {
+        Header , 
+        Footer , 
+        Container , 
+        Logo , 
+        LogoutBtn , 
+        Button , 
+        Input ,
+        RTE,
+        SignUp
+    }

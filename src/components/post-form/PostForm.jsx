@@ -65,7 +65,7 @@ function PostForm(post) {
           }
     },[])
 
-    React.useCallback(() =>{
+    React.useEffect(() =>{
       const subscription = watch(( value , {name}) =>{
         if(name === 'title'){
           setValue('slug', slugTransform(value.title , 
@@ -110,7 +110,7 @@ function PostForm(post) {
         {post && (
             <div className="w-full mb-4">
                 <img
-                    src={appwriteService.getFilePreview(post.featuredImage)}
+                    src={appwriteservice.getFilePreview(post.featuredImage)}
                     alt={post.title}
                     className="rounded-lg"
                 />
