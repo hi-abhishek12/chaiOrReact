@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import  authservice from './appwrite/auth';
 import { Header,Footer } from './components';
 import {login , logout} from './store/authSlice'
+import SignUp from './components/SignUp';
 
 function App() {
   const [loading, setLoading] = useState();
@@ -23,7 +24,7 @@ function App() {
     })
     .finally(() => (setLoading(false)))
   },[])
- 
+
   return !loading ? (
     <div className="min-h-screen flex flex-wrap
     content-between bg-gray-400">
@@ -31,6 +32,7 @@ function App() {
         <Header/>
         <main>
          TODO <Outlet/>
+       
         </main>
         <Footer/>
       </div>
