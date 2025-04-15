@@ -72,9 +72,9 @@ const login = async(data) =>{
            label = "Password:"
            placeholder = "Enter Password"
            type = "password"
-           {...register("password"),{
-            required : true
-           }}
+           {...register("password",{
+            required : true,
+           })}
            />
 
            <Button type='submit' 

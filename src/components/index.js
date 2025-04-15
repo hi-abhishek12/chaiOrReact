@@ -6,6 +6,7 @@ import Input from './Input';
 import RTE from './RTE'
 import Login from './Login'
 import SignUp from './SignUp';
+import Select from './Select'
 import PostCard from './PostCard'
 import PostForm from './post-form/PostForm';
 import LogoutBtn from './Header/LogoutBtn';   
@@ -22,5 +23,6 @@ export {
         Login,
         SignUp,
         PostForm,
-        PostCard
+        PostCard,
+        Select
     }
