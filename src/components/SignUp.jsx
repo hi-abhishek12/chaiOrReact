@@ -10,7 +10,7 @@ function SignUp() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [error , setError] = useState('');
-    const {registor , handleSubmit} = useForm();
+    const {register , handleSubmit} = useForm();
 
      const signUp = async(data) =>{
       setError('');
@@ -56,7 +56,7 @@ function SignUp() {
           <Input
             label = "Full Name:"
             placeholder = "Enter Full Name"
-            {...registor("name",{
+            {...register("name",{
               required : true
             })}
           />
@@ -78,7 +78,7 @@ function SignUp() {
               label = "Password:"
               placeholder = "Enter Password"
               type = "password"
-              {...required("password",{
+              {...register("password",{
                 required : true
               })}
           />

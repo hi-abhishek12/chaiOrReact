@@ -1,8 +1,8 @@
 const conf = {
     appwriteUrl : String(import.meta.env.VITE_APPWRITE_URL),
     appwriteProjectId : String(import.meta.env.VITE_APPWRITE_PROJECT_ID),
-    dataBaseId: String(import.meta.env.VITE_APPWRITE_DATABASEID),
-    collectionId : String(import.meta.env.VITE_APPWRITE_COLLECTIONID),
+    appwriteDatabaseId : String(import.meta.env.VITE_APPWRITE_DATABASEID),
+    appwriteCollectionId : String(import.meta.env.VITE_APPWRITE_COLLECTIONID),
     bucketId : String(import.meta.env.VITE_APPWRITE_BUCKETID),
 
 

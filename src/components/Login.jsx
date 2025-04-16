@@ -78,7 +78,7 @@ const login = async(data) =>{
            />
 
            <Button type='submit' 
-           className='w-full'>Create Account</Button>
+           className='w-full'>Sign In</Button>
            </div>
         </form>
       </div>
