@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import authservice from "../appwrite/auth";
 
 const initialState = {
     status : 'false',
