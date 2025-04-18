@@ -25,6 +25,7 @@ export default function Post() {
     }, [slug, navigate]);
 
     const deletePost = () => {
+
         appwriteservice.deletePost(post.$id).then((status) => {
             if (status) {
                 appwriteservice.deleteFile(post.featuredImage);
@@ -37,6 +38,7 @@ export default function Post() {
         <div className="py-8">
             <Container>
                 <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
+    
                     <img
                         src={appwriteservice.getFilePreview(post.featuredImage)}
                         alt={post.title}

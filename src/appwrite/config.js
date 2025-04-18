@@ -72,17 +72,19 @@ class Service{
 
    async getPosts(){
         try {
-            return await this.databases.listDocuments(
+            return  await this.databases.listDocuments(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
                 [
                     Query.equal("status" , "active")
                 ]
             )
+           
         } catch (error) {
             console.log('Appwrite :: getAllPosts :: error',error);
         }
    }
+
 
    // file upload service
 
@@ -112,6 +114,7 @@ class Service{
    
    getFilePreview = (fileId) =>{
         try {
+           
             return this.bucket.getFilePreview(
                 conf.appwriteBucketId , fileId
             )

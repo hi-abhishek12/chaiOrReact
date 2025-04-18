@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback} from 'react'
 import { useForm } from 'react-hook-form'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -107,7 +107,7 @@ function PostForm(post) {
             accept="image/png, image/jpg, image/jpeg, image/gif"
             {...register("image", { required: !post })}
         />
-        {post && (
+        {post.featuredImage && (
             <div className="w-full mb-4">
                 <img
                     src={appwriteservice.getFilePreview(post.featuredImage)}
