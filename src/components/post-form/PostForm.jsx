@@ -107,7 +107,7 @@ function PostForm({post}) {
             accept="image/png, image/jpg, image/jpeg, image/gif"
             {...register("image", { required: !post })}
         />
-        {post.featuredImage && (
+        {post && (
             <div className="w-full mb-4">
                 <img
                     src={appwriteservice.getFilePreview(post.featuredImage)}
@@ -122,8 +122,8 @@ function PostForm({post}) {
             className="mb-4"
             {...register("status", { required: true })}
         />
-        <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full">
-            {post ? "Update" : "Submit"}
+       <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full">
+                    {post ? "Update" : "Submit"}
         </Button>
     </div>
 </form>
