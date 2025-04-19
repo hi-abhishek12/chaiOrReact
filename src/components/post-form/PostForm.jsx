@@ -6,7 +6,7 @@ import appwriteservice from '../../appwrite/config'
 import {Button , Input , Select , RTE} from '../index'
 import authservice from '../../appwrite/config'
 
-function PostForm(post) {
+function PostForm({post}) {
   const navigate = useNavigate();
   const userData = useSelector((state) => state.auth.status);
   
@@ -31,7 +31,7 @@ function PostForm(post) {
        
       const dbPost = await appwriteservice.updatePost(post.$id ,{
         ...data,
-        featuredImage : file? file.$id : undefined,
+        featuredImage : file ? file.$id : undefined,
         })
         if(dbPost){
           navigate(`/post/${dbPost.$id}`)
@@ -43,7 +43,7 @@ function PostForm(post) {
           data.featuredImage = fileId;
           const dbPost = await authservice.createPost({
             ...data,
-            userId : userData,
+            userId : userData.$id,
           }
         )
         if(dbPost){
