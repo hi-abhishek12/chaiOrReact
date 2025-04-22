@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import appwriteservice from '../../appwrite/config'
 import {Button , Input , Select , RTE} from '../index'
-import authservice from '../../appwrite/config'
 
 function PostForm({post}) {
   const navigate = useNavigate();
@@ -37,11 +36,11 @@ function PostForm({post}) {
           navigate(`/post/${dbPost.$id}`)
         }
       }else{
-        const file = await authservice.uploadFile(data.image[0])
+        const file = await appwriteservice.uploadFile(data.image[0])
         if(file){
           const fileId = file.$id
           data.featuredImage = fileId;
-          const dbPost = await authservice.createPost({
+          const dbPost = await appwriteservice.createPost({
             ...data,
             userId : userData.$id,
           }
