@@ -5,6 +5,8 @@ export class AuthService {
     client = new Client()
     account;
     constructor(){
+        console.log(import.meta.env.VITE_APPWRITE_DATABASEID)
+        console.log(import.meta.env.VITE_APPWRITE_PROJECT_ID)
         this.client.
         setEndpoint(conf.appwriteUrl).
         setProject(conf.appwriteProjectId)
