@@ -29,70 +29,74 @@ function SignUp() {
         }
     }
   return (
-    <div className="flex items-center justify-center">
-        <div className={`mx-auto w-full max-w-lg
-           bg-gray-100 rounded-xl p-10 border border-black/10`}>
-             <div className="mb-2 flex justify-center">
-                    <span className="inline-block w-full max-w-[100px]">
-                        <Logo width="100%" />
-                    </span>
-                </div>
-
-                <p className="mt-2 text-center text-base text-black/60">
-                    Already have an account?&nbsp;
-                    <Link
-                        to="/login"
-                        className="font-medium text-primary transition-all duration-200 hover:underline"
-                    >
-                        Sign In
-                    </Link>
-                </p>
-
-        {error && <p className =
-        "text-red-600 mt-8 text-center">{error}</p>}
-        
-        <form onSubmit={handleSubmit(signUp)}>
-          <div className='space-y-5'>
-          <Input
-            label = "Full Name:"
-            placeholder = "Enter Full Name"
-            {...register("name",{
-              required : true
-            })}
-          />
-
-           <Input 
-              label = "Email:"
-              placeholder = "Enter Email"
-                    type = "email"
-              {...register("email",{
-                required : true,
-                validate : {
-                  matchPattern:(value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.
-                    test(value) || 'Email address must be valid address'
-                }
-              })}
-                />
-
-            <Input
-              label = "Password:"
-              placeholder = "Enter Password"
-              type = "password"
-              {...register("password",{
-                required : true
-              })}
-          />
-
-          <Button type='submit'
-          className='w-full'>
-            Sign Up
-          </Button>
-          </div>
-         
-        </form>
-        
-        </div>
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 px-4">
+    <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8 sm:p-10 border border-gray-200">
+      <div className="flex justify-center mb-4">
+        <span className="inline-block w-full max-w-[100px]">
+          <Logo width="100%" />
+        </span>
+      </div>
+  
+      <h2 className="text-center text-2xl font-bold text-gray-800">Create your account</h2>
+  
+      <p className="mt-2 text-center text-sm text-gray-500">
+        Already have an account?&nbsp;
+        <Link
+          to="/login"
+          className="font-medium text-indigo-600 hover:underline"
+        >
+          Sign In
+        </Link>
+      </p>
+  
+      {error && (
+        <p className="text-red-600 mt-6 text-center text-sm font-medium">
+          {error}
+        </p>
+      )}
+  
+      <form onSubmit={handleSubmit(signUp)}>
+        <Input
+          label="Full Name:"
+          placeholder="Enter Full Name"
+          {...register("name", {
+            required: true,
+          })}
+        />
+  
+        <Input
+          label="Email:"
+          placeholder="Enter Email"
+          type="email"
+          {...register("email", {
+            required: true,
+            validate: {
+              matchPattern: (value) =>
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ||
+                "Email address must be valid",
+            },
+          })}
+        />
+  
+        <Input
+          label="Password:"
+          placeholder="Enter Password"
+          type="password"
+          {...register("password", {
+            required: true,
+          })}
+        />
+  
+        <Button
+          type="submit"
+          className="w-full mt-4 bg-indigo-600 hover:bg-indigo-700 text-white"
+        >
+          Sign Up
+        </Button>
+      </form>
     </div>
+  </div>
+  
     
   )
 }

@@ -73,6 +73,7 @@ class Service{
 
    async getPosts(){
         try {
+
             return  await this.databases.listDocuments(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,

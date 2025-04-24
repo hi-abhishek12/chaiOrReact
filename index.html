@@ -4,9 +4,27 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <title>DevUI - Modern Web</title>
+
+    <!-- Tailwind Animations (optional plugin or custom) -->
+    <style>
+      body.fade-in {
+        animation: fadeIn 1s ease-in-out forwards;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
   </head>
-  <body class="bg-slate-400">
+  <body class="bg-gray-950 text-gray-200 fade-in">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

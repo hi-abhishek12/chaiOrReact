@@ -40,7 +40,6 @@ function PostForm({post}) {
         if(file){
           const fileId = file.$id
           data.featuredImage = fileId;
-          console.log("USER ID I AM SENDING:.......", userId);
 
           const dbPost = await appwriteservice.createPost({
             ...data,
