@@ -55,7 +55,7 @@ function SignUp() {
         </p>
       )}
   
-      <form onSubmit={handleSubmit(signUp)}>
+      <form onSubmit={handleSubmit(signUp)} className="mt-8 space-y-6">
         <Input
           label="Full Name:"
           placeholder="Enter Full Name"

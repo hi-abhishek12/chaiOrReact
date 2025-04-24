@@ -125,9 +125,16 @@ function PostForm({post}) {
             className="mb-4"
             {...register("status", { required: true })}
         />
-       <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full">
-                    {post ? "Update" : "Submit"}
-        </Button>
+      <Button
+      type="submit"
+      bgColor={post ? "bg-green-500 hover:bg-green-600" : "bg-indigo-600 hover:bg-indigo-700"}
+      className="w-3/5 max-w-xs mx-auto text-white font-semibold rounded-md py-3 shadow-md
+             transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2
+             focus:ring-indigo-500"
+      >
+      {post ? "Update" : "Submit"}
+</Button>
+
     </div>
 </form>
 
