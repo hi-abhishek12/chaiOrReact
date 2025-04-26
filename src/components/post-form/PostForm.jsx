@@ -7,8 +7,8 @@ import {Button , Input , Select , RTE} from '../index'
 
 function PostForm({post}) {
   const navigate = useNavigate();
-  const userData = useSelector((state) => state.auth.status);
-  
+  const userData = useSelector((state) => state.auth.userData);
+  console.log(userData)
   const {register , handleSubmit , watch , setValue , control,
     getValues} = useForm({
       defaultValues: {

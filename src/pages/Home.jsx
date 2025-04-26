@@ -9,7 +9,7 @@ function Home() {
             setPost(posts.documents)
         }
        })
-    })
+    },[])
  if(posts.length === 0){
 
     return (
