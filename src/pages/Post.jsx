@@ -34,34 +34,44 @@ export default function Post() {
 
     return post ? (
         <div className="py-8">
-            <Container>
-                <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
-                    <img
-                        src={appwriteService.getFilePreview(post.featuredImage)}
-                        alt={post.title}
-                        className="rounded-xl"
-                    />
+          <Container>
+  <div className="max-w-3xl mx-auto border border-gray-300 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 bg-white relative">
+    <img
+      src={appwriteService.getFilePreview(post.featuredImage)}
+      alt={post.title}
+      className="rounded-xl w-full max-h-72 object-cover mb-4"
+    />
 
-                    {isAuthor && (
-                        <div className="absolute right-6 top-6">
-                            <Link to={`/edit-post/${post.$id}`}>
-                                <Button bgColor="bg-green-500" className="mr-3">
-                                    Edit
-                                </Button>
-                            </Link>
-                            <Button bgColor="bg-red-500" onClick={deletePost}>
-                                Delete
-                            </Button>
-                        </div>
-                    )}
-                </div>
-                <div className="w-full mb-6">
-                    <h1 className="text-2xl font-bold">{post.title}</h1>
-                </div>
-                <div className="browser-css">
-                    {parse(post.content)}
-                    </div>
-            </Container>
+    {isAuthor && (
+      <div className="absolute right-5 top-5 flex space-x-3 bg-white bg-opacity-90 rounded-md p-2 shadow-md z-10">
+        <Link to={`/edit-post/${post.$id}`}>
+          <Button
+            bgColor="bg-green-500"
+            className="px-4 py-1 text-sm hover:bg-green-600 transition-colors duration-300"
+          >
+            Edit
+          </Button>
+        </Link>
+        <Button
+          bgColor="bg-red-500"
+          onClick={deletePost}
+          className="px-4 py-1 text-sm hover:bg-red-600 transition-colors duration-300"
+        >
+          Delete
+        </Button>
+      </div>
+    )}
+
+    <h1 className="text-3xl font-extrabold text-gray-900 mb-6">{post.title}</h1>
+
+    <div className="browser-css prose max-w-none text-gray-800 leading-relaxed">
+      {parse(post.content)}
+    </div>
+  </div>
+</Container>
+
+
+
         </div>
     ) : null;
 }
