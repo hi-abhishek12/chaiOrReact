@@ -69,9 +69,6 @@ export default function Post() {
     </div>
   </div>
 </Container>
-
-
-
         </div>
     ) : null;
 }

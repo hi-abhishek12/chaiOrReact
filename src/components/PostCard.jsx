@@ -18,7 +18,6 @@ function PostCard({$id , title , featuredImage}) {
   <h2 className="text-2xl font-semibold text-gray-900 truncate">{title}</h2>
 </div>
 
-
     </Link>
   )
 }
