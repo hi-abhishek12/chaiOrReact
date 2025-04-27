@@ -9,7 +9,7 @@ function Edit() {
     const navigate = useNavigate();
     const {slug} = useParams();
 
-    useEffect((slug) =>{
+    useEffect(() =>{
         if(slug){
             appwriteservice.getPost(slug).then((post) =>{
                 if(post){
