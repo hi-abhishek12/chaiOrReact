@@ -10,6 +10,7 @@ function LogoutBtn() {
         authservice.logout()
         .then(() =>{
             dispatch(logout())
+           
         })
     }
 
